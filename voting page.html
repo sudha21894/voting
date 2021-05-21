@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- The above 3 meta tags *must* come first in the head; any other head content must come 
+*after* these tags -->
+ <title>Voting Panel</title>
+ <!-- Bootstrap -->
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+ <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' 
+type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' 
+type='text/css'>
+ <style>
+ .headerFont{
+ font-family: 'Ubuntu', sans-serif;
+ font-size: 24px;
+ }
+ .subFont{
+ font-family: 'Raleway', sans-serif;
+ font-size: 14px; 
+ }
+ 
+ .specialHead{
+ font-family: 'Oswald', sans-serif;
+ }
+ .normalFont{
+ font-family: 'Roboto Condensed', sans-serif;
+ }
+ img{
+ background-size: cover;
+ height: 100%;
+ width: 100%;
+ 
+ }
+ .topnav {
+ overflow: hidden;
+ background-color: #eb7f39;
+}
+.topnav a {
+ float: left;
+ color: white;
+ text-align: center;
+ padding: 14px 16px;
+ text-decoration: none;
+ font-size: 19px;
+ font-weight: bold;
+}.topnav a:hover {
+ color: white;
+ background-color: #03a9b7;
+}
+.topnav a.active {
+ color: white;
+ background-color: #03a9b7;
+ 
+}
+.topnav-right {
+ float: right;
+ font-weight: bold;
+ background-color: green;
+ color: white;
+ 
+}
+ .btn{
+ background-color: #03a9b7;
+ color: white;
+ width: 13%;
+ }
+ .btn:hover {
+ background-color: green;
+ color: white;
+}
+ 
+ .top{
+ top:100%; }
+ body{
+ background-image: url(bg.jpg);
+ background-size: cover;
+ height: 100%;
+ width: 100%;
+ 
+ }
+ </style>
+ <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -
+->
+ <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+ <!--[if lt IE 9]>
+ <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+ <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+ <![endif]-->
+ </head>
+ <body>
+<div class="top">
+ <div class="topnav">
+ <a class="active" href="home.html">eVoting</a>
+ <div class="topnav-right">
+ <a href="adminn.html">Admin Panel</a>
+ </div>
+</div>
+ 
+ <div class="container" style="padding:100px;">
+ <div class="row">
+ <div class="col-sm-12" style="border:2px solid white;"> 
+ <div class="page-header">
+ <h2 class="specialHead"style="color:black;">Choose Your Candidate.</h2>
+ <p class="normalFont" style="color:black;">Prove Your Authencity of being correct 
+voter.</p>
+ </div>
+ 
+ <form action="saveVote.php" method="POST">
+ <div class="form-group" style="color:white;">
+ <label style="color:black;">Voter's Name :</label><br>
+ 
+ <input type="text" name="voterName" pattern="[A-Za-z]{3,}" title="Enter Your Full 
+Name" placeholder="Enter Your Full Name" class="form-control" required/><br>
+ <label style="color:black;">Voter's Registered Email ID :</label><br>
+ <input type="text" name="voterEmail" placeholder="Enter Your Email ID" 
+class="form-control" onblur="emailValidate();" required/><br>
+ <script type="text/javascript">
+ function emailValidate() {
+ var mailid = document.getElementById("mail").value;
+ var regEx=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-
+]+)*$/;
+ if (mailid != '') {
+ if (mailid.match(regEx)) {
+ return true;
+ }
+ else {
+ alert("Enter valid MailID");
+ return false;
+ }
+ }
+ }</script>
+ <label style="color:black;">Voter's Card No. :</label><br>
+ <input id="id1" type="text" name="voterID" placeholder="Enter Your Voter Uniquie 
+ID" class="form-control" onblur="voterValidate();" required/><br>
+ <script type="text/javascript">
+ function voterValidate() {
+ var voterid = document.getElementById("cardno").value;
+ var regEx=/^([a-zA-Z]){3}([0-9]){7}?$/;
+ if (voterid != '') {
+ if (voterid.match(regEx)) {
+ return true;
+ }
+ else {
+ alert("Enter valid VoterID");
+ return false;
+ }
+ }
+ }
+</script>
+ 
+ <h3 class="normalFont">Selet Any One of Them,</h3>
+ <div class="radio">
+ <label for="">
+ <input type="radio" name="selectedCandidate" value="DMK"> 
+<strong>M.K.Stalin(DMK)</strong>
+ </label><br>
+ <label for="">
+ <input type="radio" name="selectedCandidate" value="ADMK"> 
+<strong>Edappadi K. Palaniswami(ADMK)</strong>  </label><br>
+ 
+ <label for="">
+ <input type="radio" name="selectedCandidate" value="MNK"> <strong>Kamal 
+Haasan(MNK)</strong>
+ </label><br>
+ <label for="">
+ <input type="radio" name="selectedCandidate" value="NTK"> 
+<strong>Seeman(NTK)</strong>
+ </label><br>
+ <label for="">
+ <input type="radio" name="selectedCandidate" value="AMMK"> 
+<strong>T.T.V.Dhinakaran(AMMK)</strong>
+ </label><br>
+ <br>
+ <hr>
+ <button type="submit" name="submit" class="btn"
+ ><strong>Vote</strong></button>
+ <button type="submit" class="btn"><strong>Reset</strong></button>
+ </div>
+ </div>
+ </form>
+ </div>
+ </div>
+ </div>
+ </div>
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+ <!-- Include all compiled plugins (below), or include individual files as needed --> <script src="js/bootstrap.min.js"></script>
+ </body>
+</html>

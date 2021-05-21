@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+.input-container {
+ display: -ms-flexbox; /* IE10 */
+ display: flex;
+ width: 100%;
+ margin-bottom: 15px;
+}
+ body{
+ background-image: url(bg.jpg);
+ height: 100%;
+ width: 100%;
+ background-repeat: no-repeat;
+ background-size: cover;
+ }
+ .center a:hover{
+ background-color: #eb7f39;
+ color: black; }
+ .center a {
+ background-color: gray; 
+ border: none;
+ color: white;
+ padding: 10px;
+ text-align: center;
+ text-decoration:none;
+ display: inline-block;
+ font-size: 15px;
+ margin: 4px 2px;
+ cursor: pointer;
+ border-radius: 12px;
+}
+ .center a {
+ background-color: black;
+ color: white;
+}
+.icon {
+ padding: 10px;
+ background: #eb7f39;
+ color: white;
+ min-width: 50px;
+ text-align: center;
+}
+.input-field {
+ width: 100%;
+ padding: 10px;
+ outline: none;}
+.input-field:focus {
+ border: 2px solid #eb7f39;
+}
+/* Set a style for the submit button */
+.btn {
+ background-color: #eb7f39;
+ color: white;
+ padding: 15px 20px;
+ border: none;
+ cursor: pointer;
+ width: 100%;
+ opacity: 0.9;
+}
+ .rem{
+ padding: 2px;
+ color: whitesmoke;
+ font-family: serif;
+ }
+ p{
+ color: white;
+ font-weight: bold;
+ font-family: serif;
+ }
+ 
+.btn:hover {
+ opacity: 2;}
+ a{
+ color: orange;
+ text-decoration: none;
+ font-size: 15px;
+ font-weight: 600;
+ 
+ }
+ h2{
+ color: white;
+ }
+</style>
+</head>
+<body>
+<form action="authentication.php" method="POST" style="max-width:500px;margin:auto">
+ <h2><center>Admin Panel</center></h2>
+ <div class="input-container">
+ <i class="fa fa-user icon"></i>
+ <input class="input-field" type="text" placeholder="Username" name="adminUserName">
+ </div>
+ 
+ <div class="input-container">
+ <i class="fa fa-key icon"></i>
+ <input class="input-field" type="password" placeholder="Password" 
+name="adminPassword">
+ </div>
+ <div class="rem"><input type="checkbox">Remember me</div>
+ <button type="submit" class="btn">Login</button>
+ <a href=""><p>Forgot Password? </p> Click here to reset your password.</a> <div class="center"><center>
+ <a href="home.html">Back to Home</a></center></div>
+</form>
+</body>
+</html>
